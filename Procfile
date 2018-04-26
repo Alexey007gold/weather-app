@@ -1,0 +1,1 @@
+web: java -jar target/weatherApp-0.0.1-SNAPSHOT.jar
