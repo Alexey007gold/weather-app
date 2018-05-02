@@ -4,6 +4,8 @@ package ua.epam.javard.weatherApp.weatherbit.pojo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -11,6 +13,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "code",
     "description"
 })
+@EqualsAndHashCode
+@ToString
 public class Weather {
 
     @JsonProperty("icon")
