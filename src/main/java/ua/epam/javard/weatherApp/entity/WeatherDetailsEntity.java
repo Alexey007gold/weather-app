@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "weather_details")
 @EqualsAndHashCode
-@ToString
+@ToString(exclude = {"weatherBasicEntity"})
 @Getter
 @Setter
 public class WeatherDetailsEntity {
@@ -20,7 +20,7 @@ public class WeatherDetailsEntity {
     @Column(name = "id")
     private Long id;
 
-    @OneToOne(mappedBy = "weatherDetails")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "weatherDetailsEntity")
     private WeatherBasicEntity weatherBasicEntity;
 
     @Column(name = "weather_icon_code")
