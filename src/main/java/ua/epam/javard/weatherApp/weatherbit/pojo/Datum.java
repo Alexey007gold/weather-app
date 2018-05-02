@@ -42,136 +42,137 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class Datum {
 
     @JsonProperty("pod")
-    private String pod;
+    private String partOfTheDay;
     @JsonProperty("wind_cdir")
-    private String windCdir;
+    private String windDirectionAbbreviation;
     @JsonProperty("wind_cdir_full")
-    private String windCdirFull;
+    private String windDirection;
     @JsonProperty("wind_dir")
-    private long windDir;
+    private long windDirectionDegrees;
     @JsonProperty("rh")
-    private long rh;
+    private long relativeHumidity;
     @JsonProperty("wind_spd")
-    private double windSpd;
+    private double windSpeed;
     @JsonProperty("pop")
-    private long pop;
+    private long chanceOfRain;
     @JsonProperty("timestamp_utc")
     private String timestampUtc;
     @JsonProperty("wind_gust_spd")
-    private double windGustSpd;
+    private double windGustSpeed;
     @JsonProperty("slp")
-    private double slp;
+    private double seaLevelPressure;
     @JsonProperty("snow_depth")
     private long snowDepth;
     @JsonProperty("clouds_mid")
-    private long cloudsMid;
+    private long cloudsMidLevelCoverage;
     @JsonProperty("clouds_low")
-    private long cloudsLow;
+    private long cloudsLowLevelCoverage;
     @JsonProperty("pres")
-    private double pres;
+    private double pressure;
     @JsonProperty("dni")
     private double dni;
     @JsonProperty("dewpt")
-    private double dewpt;
+    private double dewPoint;
     @JsonProperty("snow")
-    private long snow;
+    private long snowfallLevel;
     @JsonProperty("uv")
-    private double uv;
+    private double uvIndex;
     @JsonProperty("clouds_hi")
-    private long cloudsHi;
+    private long cloudsHightLevelCoverage;
     @JsonProperty("ozone")
-    private double ozone;
+    private double averageOzon;
     @JsonProperty("weather")
     private Weather weather;
     @JsonProperty("ghi")
     private double ghi;
     @JsonProperty("precip")
-    private long precip;
+    private long rainLevel;
     @JsonProperty("timestamp_local")
     private String timestampLocal;
     @JsonProperty("ts")
-    private long ts;
+    private long timestamp;
     @JsonProperty("app_temp")
-    private double appTemp;
+    private double apparentTemperature;
     @JsonProperty("datetime")
     private String datetime;
     @JsonProperty("temp")
-    private double temp;
+    private double temperature;
     @JsonProperty("dhi")
     private double dhi;
     @JsonProperty("clouds")
-    private long clouds;
+    private long cloudsCoverage;
     @JsonProperty("vis")
-    private double vis;
+    private double visibility;
+
 
     @JsonProperty("pod")
-    public String getPod() {
-        return pod;
+    public String getPartOfTheDay() {
+        return partOfTheDay;
     }
 
     @JsonProperty("pod")
-    public void setPod(String pod) {
-        this.pod = pod;
+    public void setPartOfTheDay(String partOfTheDay) {
+        this.partOfTheDay = partOfTheDay;
     }
 
     @JsonProperty("wind_cdir")
-    public String getWindCdir() {
-        return windCdir;
+    public String getWindDirectionAbbreviation() {
+        return windDirectionAbbreviation;
     }
 
     @JsonProperty("wind_cdir")
-    public void setWindCdir(String windCdir) {
-        this.windCdir = windCdir;
+    public void setWindDirectionAbbreviation(String windDirectionAbbreviation) {
+        this.windDirectionAbbreviation = windDirectionAbbreviation;
     }
 
     @JsonProperty("wind_cdir_full")
-    public String getWindCdirFull() {
-        return windCdirFull;
+    public String getWindDirection() {
+        return windDirection;
     }
 
     @JsonProperty("wind_cdir_full")
-    public void setWindCdirFull(String windCdirFull) {
-        this.windCdirFull = windCdirFull;
+    public void setWindDirection(String windDirection) {
+        this.windDirection = windDirection;
     }
 
     @JsonProperty("wind_dir")
-    public long getWindDir() {
-        return windDir;
+    public long getWindDirectionDegrees() {
+        return windDirectionDegrees;
     }
 
     @JsonProperty("wind_dir")
-    public void setWindDir(long windDir) {
-        this.windDir = windDir;
+    public void setWindDirectionDegrees(long windDirectionDegrees) {
+        this.windDirectionDegrees = windDirectionDegrees;
     }
 
     @JsonProperty("rh")
-    public long getRh() {
-        return rh;
+    public long getRelativeHumidity() {
+        return relativeHumidity;
     }
 
     @JsonProperty("rh")
-    public void setRh(long rh) {
-        this.rh = rh;
+    public void setRelativeHumidity(long relativeHumidity) {
+        this.relativeHumidity = relativeHumidity;
     }
 
     @JsonProperty("wind_spd")
-    public double getWindSpd() {
-        return windSpd;
+    public double getWindSpeed() {
+        return windSpeed;
     }
 
     @JsonProperty("wind_spd")
-    public void setWindSpd(double windSpd) {
-        this.windSpd = windSpd;
+    public void setWindSpeed(double windSpeed) {
+        this.windSpeed = windSpeed;
     }
 
     @JsonProperty("pop")
-    public long getPop() {
-        return pop;
+    public long getChanceOfRain() {
+        return chanceOfRain;
     }
 
     @JsonProperty("pop")
-    public void setPop(long pop) {
-        this.pop = pop;
+    public void setChanceOfRain(long chanceOfRain) {
+        this.chanceOfRain = chanceOfRain;
     }
 
     @JsonProperty("timestamp_utc")
@@ -185,23 +186,23 @@ public class Datum {
     }
 
     @JsonProperty("wind_gust_spd")
-    public double getWindGustSpd() {
-        return windGustSpd;
+    public double getWindGustSpeed() {
+        return windGustSpeed;
     }
 
     @JsonProperty("wind_gust_spd")
-    public void setWindGustSpd(double windGustSpd) {
-        this.windGustSpd = windGustSpd;
+    public void setWindGustSpeed(double windGustSpeed) {
+        this.windGustSpeed = windGustSpeed;
     }
 
     @JsonProperty("slp")
-    public double getSlp() {
-        return slp;
+    public double getSeaLevelPressure() {
+        return seaLevelPressure;
     }
 
     @JsonProperty("slp")
-    public void setSlp(double slp) {
-        this.slp = slp;
+    public void setSeaLevelPressure(double seaLevelPressure) {
+        this.seaLevelPressure = seaLevelPressure;
     }
 
     @JsonProperty("snow_depth")
@@ -215,33 +216,33 @@ public class Datum {
     }
 
     @JsonProperty("clouds_mid")
-    public long getCloudsMid() {
-        return cloudsMid;
+    public long getCloudsMidLevelCoverage() {
+        return cloudsMidLevelCoverage;
     }
 
     @JsonProperty("clouds_mid")
-    public void setCloudsMid(long cloudsMid) {
-        this.cloudsMid = cloudsMid;
+    public void setCloudsMidLevelCoverage(long cloudsMidLevelCoverage) {
+        this.cloudsMidLevelCoverage = cloudsMidLevelCoverage;
     }
 
     @JsonProperty("clouds_low")
-    public long getCloudsLow() {
-        return cloudsLow;
+    public long getCloudsLowLevelCoverage() {
+        return cloudsLowLevelCoverage;
     }
 
     @JsonProperty("clouds_low")
-    public void setCloudsLow(long cloudsLow) {
-        this.cloudsLow = cloudsLow;
+    public void setCloudsLowLevelCoverage(long cloudsLowLevelCoverage) {
+        this.cloudsLowLevelCoverage = cloudsLowLevelCoverage;
     }
 
     @JsonProperty("pres")
-    public double getPres() {
-        return pres;
+    public double getPressure() {
+        return pressure;
     }
 
     @JsonProperty("pres")
-    public void setPres(double pres) {
-        this.pres = pres;
+    public void setPressure(double pressure) {
+        this.pressure = pressure;
     }
 
     @JsonProperty("dni")
@@ -255,53 +256,53 @@ public class Datum {
     }
 
     @JsonProperty("dewpt")
-    public double getDewpt() {
-        return dewpt;
+    public double getDewPoint() {
+        return dewPoint;
     }
 
     @JsonProperty("dewpt")
-    public void setDewpt(double dewpt) {
-        this.dewpt = dewpt;
+    public void setDewPoint(double dewPoint) {
+        this.dewPoint = dewPoint;
     }
 
     @JsonProperty("snow")
-    public long getSnow() {
-        return snow;
+    public long getSnowfallLevel() {
+        return snowfallLevel;
     }
 
     @JsonProperty("snow")
-    public void setSnow(long snow) {
-        this.snow = snow;
+    public void setSnowfallLevel(long snowfallLevel) {
+        this.snowfallLevel = snowfallLevel;
     }
 
     @JsonProperty("uv")
-    public double getUv() {
-        return uv;
+    public double getUvIndex() {
+        return uvIndex;
     }
 
     @JsonProperty("uv")
-    public void setUv(double uv) {
-        this.uv = uv;
+    public void setUvIndex(double uvIndex) {
+        this.uvIndex = uvIndex;
     }
 
     @JsonProperty("clouds_hi")
-    public long getCloudsHi() {
-        return cloudsHi;
+    public long getCloudsHightLevelCoverage() {
+        return cloudsHightLevelCoverage;
     }
 
     @JsonProperty("clouds_hi")
-    public void setCloudsHi(long cloudsHi) {
-        this.cloudsHi = cloudsHi;
+    public void setCloudsHightLevelCoverage(long cloudsHightLevelCoverage) {
+        this.cloudsHightLevelCoverage = cloudsHightLevelCoverage;
     }
 
     @JsonProperty("ozone")
-    public double getOzone() {
-        return ozone;
+    public double getAverageOzon() {
+        return averageOzon;
     }
 
     @JsonProperty("ozone")
-    public void setOzone(double ozone) {
-        this.ozone = ozone;
+    public void setAverageOzon(double averageOzon) {
+        this.averageOzon = averageOzon;
     }
 
     @JsonProperty("weather")
@@ -325,13 +326,13 @@ public class Datum {
     }
 
     @JsonProperty("precip")
-    public long getPrecip() {
-        return precip;
+    public long getRainLevel() {
+        return rainLevel;
     }
 
     @JsonProperty("precip")
-    public void setPrecip(long precip) {
-        this.precip = precip;
+    public void setRainLevel(long rainLevel) {
+        this.rainLevel = rainLevel;
     }
 
     @JsonProperty("timestamp_local")
@@ -345,23 +346,23 @@ public class Datum {
     }
 
     @JsonProperty("ts")
-    public long getTs() {
-        return ts;
+    public long getTimestamp() {
+        return timestamp;
     }
 
     @JsonProperty("ts")
-    public void setTs(long ts) {
-        this.ts = ts;
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 
     @JsonProperty("app_temp")
-    public double getAppTemp() {
-        return appTemp;
+    public double getApparentTemperature() {
+        return apparentTemperature;
     }
 
     @JsonProperty("app_temp")
-    public void setAppTemp(double appTemp) {
-        this.appTemp = appTemp;
+    public void setApparentTemperature(double apparentTemperature) {
+        this.apparentTemperature = apparentTemperature;
     }
 
     @JsonProperty("datetime")
@@ -375,13 +376,13 @@ public class Datum {
     }
 
     @JsonProperty("temp")
-    public double getTemp() {
-        return temp;
+    public double getTemperature() {
+        return temperature;
     }
 
     @JsonProperty("temp")
-    public void setTemp(double temp) {
-        this.temp = temp;
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
     }
 
     @JsonProperty("dhi")
@@ -395,23 +396,23 @@ public class Datum {
     }
 
     @JsonProperty("clouds")
-    public long getClouds() {
-        return clouds;
+    public long getCloudsCoverage() {
+        return cloudsCoverage;
     }
 
     @JsonProperty("clouds")
-    public void setClouds(long clouds) {
-        this.clouds = clouds;
+    public void setCloudsCoverage(long cloudsCoverage) {
+        this.cloudsCoverage = cloudsCoverage;
     }
 
     @JsonProperty("vis")
-    public double getVis() {
-        return vis;
+    public double getVisibility() {
+        return visibility;
     }
 
     @JsonProperty("vis")
-    public void setVis(double vis) {
-        this.vis = vis;
+    public void setVisibility(double visibility) {
+        this.visibility = visibility;
     }
 
 }

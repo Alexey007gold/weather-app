@@ -24,11 +24,11 @@ public class ApiResponse {
     @JsonProperty("city_name")
     private String cityName;
     @JsonProperty("lon")
-    private String lon;
+    private String longitude;
     @JsonProperty("timezone")
     private String timezone;
     @JsonProperty("lat")
-    private String lat;
+    private String latitude;
     @JsonProperty("country_code")
     private String countryCode;
     @JsonProperty("state_code")
@@ -55,13 +55,13 @@ public class ApiResponse {
     }
 
     @JsonProperty("lon")
-    public String getLon() {
-        return lon;
+    public String getLongitude() {
+        return longitude;
     }
 
     @JsonProperty("lon")
-    public void setLon(String lon) {
-        this.lon = lon;
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
     @JsonProperty("timezone")
@@ -75,13 +75,13 @@ public class ApiResponse {
     }
 
     @JsonProperty("lat")
-    public String getLat() {
-        return lat;
+    public String getLatitude() {
+        return latitude;
     }
 
     @JsonProperty("lat")
-    public void setLat(String lat) {
-        this.lat = lat;
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
     }
 
     @JsonProperty("country_code")
@@ -103,5 +103,6 @@ public class ApiResponse {
     public void setStateCode(String stateCode) {
         this.stateCode = stateCode;
     }
+
 
 }
