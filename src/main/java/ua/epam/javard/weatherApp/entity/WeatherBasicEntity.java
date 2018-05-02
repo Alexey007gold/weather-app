@@ -6,7 +6,9 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "weather_basic")
+@Table(name = "weather_basic", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"city_id", "date_time"})
+})
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
