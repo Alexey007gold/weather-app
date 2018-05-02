@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name = "weather_details")
 @NoArgsConstructor
 @EqualsAndHashCode
-@ToString
+@ToString(exclude = {"weatherBasicEntity"})
 @Getter
 @Setter
 public class WeatherDetailsEntity {
@@ -18,7 +18,7 @@ public class WeatherDetailsEntity {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @OneToOne(mappedBy = "weatherDetails")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "weatherDetailsEntity")
     @JoinColumn(nullable = false)
     private WeatherBasicEntity weatherBasicEntity;
 
@@ -31,14 +31,14 @@ public class WeatherDetailsEntity {
     @Column(name = "weather_description", nullable = false)
     private String weatherDescription;
 
-    @Column(name = "weather_dir_abbr", nullable = false)
-    private String weatherDirAbbr;
+    @Column(name = "wind_dir_abbr", nullable = false)
+    private String windDirAbbr;
 
-    @Column(name = "weather_dir_full", nullable = false)
-    private String weatherDirFull;
+    @Column(name = "wind_dir_full", nullable = false)
+    private String windDirFull;
 
-    @Column(name = "weather_dir_degrees", nullable = false)
-    private Double weatherDirDegrees;
+    @Column(name = "wind_dir_degrees", nullable = false)
+    private Double windDirDegrees;
 
     @Column(name = "wind_speed", nullable = false)
     private Double windSpeed;
