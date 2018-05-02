@@ -78,7 +78,7 @@ public class Observation {
     @JsonProperty("uv")
     private double uvIndex;
     @JsonProperty("clouds_hi")
-    private long cloudsHightLevelCoverage;
+    private long cloudsHighLevelCoverage;
     @JsonProperty("ozone")
     private double averageOzon;
     @JsonProperty("weather")
@@ -286,13 +286,13 @@ public class Observation {
     }
 
     @JsonProperty("clouds_hi")
-    public long getCloudsHightLevelCoverage() {
-        return cloudsHightLevelCoverage;
+    public long getCloudsHighLevelCoverage() {
+        return cloudsHighLevelCoverage;
     }
 
     @JsonProperty("clouds_hi")
-    public void setCloudsHightLevelCoverage(long cloudsHightLevelCoverage) {
-        this.cloudsHightLevelCoverage = cloudsHightLevelCoverage;
+    public void setCloudsHighLevelCoverage(long cloudsHighLevelCoverage) {
+        this.cloudsHighLevelCoverage = cloudsHighLevelCoverage;
     }
 
     @JsonProperty("ozone")
