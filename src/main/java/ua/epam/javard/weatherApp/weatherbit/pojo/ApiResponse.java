@@ -20,7 +20,7 @@ import java.util.List;
 public class ApiResponse {
 
     @JsonProperty("data")
-    private List<Datum> data = null;
+    private List<Observation> data = null;
     @JsonProperty("city_name")
     private String cityName;
     @JsonProperty("lon")
@@ -35,12 +35,12 @@ public class ApiResponse {
     private String stateCode;
 
     @JsonProperty("data")
-    public List<Datum> getData() {
+    public List<Observation> getData() {
         return data;
     }
 
     @JsonProperty("data")
-    public void setData(List<Datum> data) {
+    public void setData(List<Observation> data) {
         this.data = data;
     }
 

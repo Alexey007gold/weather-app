@@ -39,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "clouds",
     "vis"
 })
-public class Datum {
+public class Observation {
 
     @JsonProperty("pod")
     private String partOfTheDay;
