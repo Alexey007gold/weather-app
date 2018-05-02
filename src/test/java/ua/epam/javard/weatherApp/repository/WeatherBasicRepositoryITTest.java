@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.context.junit4.SpringRunner;
 import ua.epam.javard.weatherApp.TestDataCreator;
 import ua.epam.javard.weatherApp.entity.WeatherBasicEntity;
@@ -94,5 +95,12 @@ public class WeatherBasicRepositoryITTest {
 
         assertEquals(4, cityIds.size());
         assertTrue(cityIds.containsAll(expectedCityIds));
+    }
+
+    @Test(expected = DataIntegrityViolationException.class)
+    public void shouldThrowAnExceptionOnSave() {
+        WeatherBasicEntity weatherBasicEntity = TestDataCreator.createWeatherBasicEntity(3L, dateTime, 40.0, 40.0);
+        weatherBasicEntity.setWeatherDetailsEntity(weatherDetailsEntity);
+        weatherBasicRepository.saveAndFlush(weatherBasicEntity);
     }
 }
