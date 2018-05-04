@@ -17,8 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by Oleksii_Kovetskyi on 5/3/2018.
@@ -60,18 +59,7 @@ public class WeatherBasicRepositoryITTest {
 
     @Test
     public void shouldReturnCorrectListOfEntitiesOnFindByDateTimeBetween() {
-        //put some data to the repository
-        Random random = new Random(999999999999999999L);
-        Map<LocalDateTime, WeatherBasicEntity> entities = new HashMap<>();
-        for (int i = 0; i < 500; i++) {
-            LocalDateTime dateTime = LocalDateTime.of(2018, 10, random.nextInt(30) + 1,
-                    random.nextInt(24),  random.nextInt(60));
-            WeatherBasicEntity weatherBasicEntity = TestDataCreator.createWeatherBasicEntity(dateTime, 40.0, 40.0);
-            weatherBasicEntity.setWeatherDetailsEntity(weatherDetailsEntity);
-            entities.put(dateTime, weatherBasicEntity);
-        }
-        weatherBasicRepository.saveAll(entities.values());
-        weatherBasicRepository.flush();
+        putDataToRepo();
 
         //query for a specified range of dates
         LocalDateTime from = LocalDateTime.of(2018, 10, 10, 5,  25);
@@ -88,8 +76,53 @@ public class WeatherBasicRepositoryITTest {
 
     @Test(expected = DataIntegrityViolationException.class)
     public void shouldThrowAnExceptionOnSaveWhenThereIsAlreadyARowWithSuchDateTime() {
-        WeatherBasicEntity weatherBasicEntity = TestDataCreator.createWeatherBasicEntity(dateTime[0], 40.0, 40.0);
-        weatherBasicEntity.setWeatherDetailsEntity(weatherDetailsEntity);
+        WeatherBasicEntity weatherBasicEntity = createWeatherBasicEntity(dateTime[0]);
         weatherBasicRepository.saveAndFlush(weatherBasicEntity);
+    }
+
+    @Test(expected = DataIntegrityViolationException.class)
+    public void shouldDeleteRightRowsOnDeleteByDateTimeBetween() {
+        putDataToRepo();
+
+        LocalDateTime from = LocalDateTime.of(2018, 10, 10, 5,  25);
+        LocalDateTime until = LocalDateTime.of(2018, 10, 20, 8,  45);
+
+        //put corner values
+        weatherBasicRepository.save(createWeatherBasicEntity(from));
+        weatherBasicRepository.save(createWeatherBasicEntity(until));
+
+
+        weatherBasicRepository.deleteByDateTimeBetween(from, until);
+
+        List<WeatherBasicEntity> result = weatherBasicRepository.findAll();
+
+        for (WeatherBasicEntity entry : result) {
+            assertTrue(entry.getDateTime().isBefore(from));
+            assertTrue(entry.getDateTime().isAfter(until));
+
+            if (entry.getDateTime().isEqual(from)) {
+                fail();
+            }
+        }
+    }
+
+    private void putDataToRepo() {
+        //put some data to the repository
+        Random random = new Random(999999999999999999L);
+        Map<LocalDateTime, WeatherBasicEntity> entities = new HashMap<>();
+        for (int i = 0; i < 200; i++) {
+            LocalDateTime dateTime = LocalDateTime.of(2018, 10, random.nextInt(30) + 1,
+                    random.nextInt(24),  random.nextInt(60));
+            WeatherBasicEntity weatherBasicEntity = createWeatherBasicEntity(dateTime);
+            entities.put(dateTime, weatherBasicEntity);
+        }
+        weatherBasicRepository.saveAll(entities.values());
+        weatherBasicRepository.flush();
+    }
+
+    private WeatherBasicEntity createWeatherBasicEntity(LocalDateTime dateTime) {
+        WeatherBasicEntity weatherBasicEntity = TestDataCreator.createWeatherBasicEntity(dateTime, 40.0, 40.0);
+        weatherBasicEntity.setWeatherDetailsEntity(weatherDetailsEntity);
+        return weatherBasicEntity;
     }
 }
