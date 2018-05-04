@@ -1,5 +1,6 @@
 package ua.epam.javard.weatherApp.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.epam.javard.weatherApp.entity.WeatherBasicEntity;
 import ua.epam.javard.weatherApp.repository.WeatherBasicRepository;
@@ -17,6 +18,7 @@ public class WeatherServiceImpl implements WeatherService {
 
     private WeatherBasicRepository weatherBasicRepository;
 
+    @Autowired
     public WeatherServiceImpl(WeatherBasicRepository weatherBasicRepository) {
         this.weatherBasicRepository = weatherBasicRepository;
     }
