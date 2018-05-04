@@ -35,8 +35,8 @@ public class WeatherBasicRepositoryITTest {
     @Before
     public void init() {
         weatherDetailsEntity = TestDataCreator.createWeatherDetailsEntity("icon",
-                1111, "Rainy", "S", "South", 180.0,
-                10.5, 15.5, 90.0, 30.0);
+                1111, "Rainy", "S", "South", 180L,
+                10.5, 15.5, 90.0, 30L);
 
         WeatherBasicEntity weatherBasicEntity;
         dateTime = new LocalDateTime[] {LocalDateTime.of(2018, 10, 15, 5,  25),

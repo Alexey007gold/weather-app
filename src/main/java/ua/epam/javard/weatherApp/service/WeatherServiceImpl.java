@@ -27,7 +27,8 @@ public class WeatherServiceImpl implements WeatherService {
     public  List<WeatherBasicEntity> getWeatherForDate(Long cityId, LocalDate date) {
         LocalDateTime from = LocalDateTime.of(date, LocalTime.MIN);
         LocalDateTime until = LocalDateTime.of(date, LocalTime.MAX);
-        return weatherBasicRepository.findByCityIdAndDateTimeBetween(cityId, from, until);
+//        return weatherBasicRepository.findByCityIdAndDateTimeBetween(cityId, from, until);
+        return null;
     }
 
     @Override
@@ -39,7 +40,8 @@ public class WeatherServiceImpl implements WeatherService {
     public  List<WeatherBasicEntity> getWeatherForecast(Long cityId, int hours) {
         LocalDateTime from = LocalDateTime.now();
         LocalDateTime until = from.plusHours(hours);
-        return weatherBasicRepository.findByCityIdAndDateTimeBetween(cityId, from, until);
+//        return weatherBasicRepository.findByCityIdAndDateTimeBetween(cityId, from, until);
+        return null;
     }
 
 }
