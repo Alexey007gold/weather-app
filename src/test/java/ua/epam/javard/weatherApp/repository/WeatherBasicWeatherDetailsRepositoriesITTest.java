@@ -40,8 +40,7 @@ public class WeatherBasicWeatherDetailsRepositoriesITTest {
                 1111, "Rainy", "S", "South", 180.0,
                 10.5, 15.5, 90.0, 30.0);
 
-        WeatherBasicEntity weatherBasicEntity = TestDataCreator.createWeatherBasicEntity(1L, dateTime,
-                40.0, 40.0);
+        WeatherBasicEntity weatherBasicEntity = TestDataCreator.createWeatherBasicEntity(dateTime, 40.0, 40.0);
 
         weatherBasicEntity.setWeatherDetailsEntity(weatherDetailsEntity);
         weatherDetailsEntity.setWeatherBasicEntity(weatherBasicEntity);
@@ -50,19 +49,11 @@ public class WeatherBasicWeatherDetailsRepositoriesITTest {
     }
 
     @Test
-    public void shouldReturnTheCorrectEntityOnFindByCityIdAndDateTimeCall() {
-        WeatherBasicEntity entity = weatherBasicRepository.findByCityIdAndDateTime(1L, dateTime);
-
-        assertEquals(40.0, entity.getWeatherDetailsEntity().getWeatherBasicEntity().getTempCelsius(), 0.00000001);
-        assertEquals("Rainy", entity.getWeatherDetailsEntity().getWeatherDescription());
-    }
-
-    @Test
     public void shouldDeleteBothEntitiesOnWeatherBasicDelete() {
-        WeatherBasicEntity basic = weatherBasicRepository.findByCityIdAndDateTime(1L, dateTime);
+        WeatherBasicEntity basic = weatherBasicRepository.findByDateTime(dateTime);
         weatherBasicRepository.delete(basic);
 
-        basic = weatherBasicRepository.findByCityIdAndDateTime(1L, dateTime);
+        basic = weatherBasicRepository.findByDateTime(dateTime);
 
         assertNull(basic);
         assertEquals(0, weatherDetailsRepository.count());
@@ -70,10 +61,10 @@ public class WeatherBasicWeatherDetailsRepositoriesITTest {
 
     @Test
     public void shouldDeleteBothEntitiesOnWeatherDetailsDelete() {
-        WeatherBasicEntity basic = weatherBasicRepository.findByCityIdAndDateTime(1L, dateTime);
+        WeatherBasicEntity basic = weatherBasicRepository.findByDateTime(dateTime);
         weatherDetailsRepository.delete(basic.getWeatherDetailsEntity());
 
-        basic = weatherBasicRepository.findByCityIdAndDateTime(1L, dateTime);
+        basic = weatherBasicRepository.findByDateTime(dateTime);
 
         assertNull(basic);
         assertEquals(0, weatherDetailsRepository.count());
@@ -81,12 +72,12 @@ public class WeatherBasicWeatherDetailsRepositoriesITTest {
 
     @Test
     public void shouldUpdateBothEntitiesOnWeatherBasicUpdate() {
-        WeatherBasicEntity basic = weatherBasicRepository.findByCityIdAndDateTime(1L, dateTime);
+        WeatherBasicEntity basic = weatherBasicRepository.findByDateTime(dateTime);
         basic.setTempCelsius(50.0);
         basic.getWeatherDetailsEntity().setWeatherDescription("Sunny");
         weatherBasicRepository.save(basic);
 
-        basic = weatherBasicRepository.findByCityIdAndDateTime(1L, dateTime);
+        basic = weatherBasicRepository.findByDateTime(dateTime);
 
         assertEquals(50.0, basic.getWeatherDetailsEntity().getWeatherBasicEntity().getTempCelsius(), 0.00000001);
         assertEquals("Sunny", basic.getWeatherDetailsEntity().getWeatherDescription());
@@ -94,12 +85,12 @@ public class WeatherBasicWeatherDetailsRepositoriesITTest {
 
     @Test
     public void shouldUpdateBothEntitiesOnWeatherDetailsUpdate() {
-        WeatherBasicEntity basic = weatherBasicRepository.findByCityIdAndDateTime(1L, dateTime);
+        WeatherBasicEntity basic = weatherBasicRepository.findByDateTime(dateTime);
         basic.setTempCelsius(50.0);
         basic.getWeatherDetailsEntity().setWeatherDescription("Sunny");
         weatherDetailsRepository.save(basic.getWeatherDetailsEntity());
 
-        basic = weatherBasicRepository.findByCityIdAndDateTime(1L, dateTime);
+        basic = weatherBasicRepository.findByDateTime(dateTime);
 
         assertEquals(50.0, basic.getWeatherDetailsEntity().getWeatherBasicEntity().getTempCelsius(), 0.00000001);
         assertEquals("Sunny", basic.getWeatherDetailsEntity().getWeatherDescription());

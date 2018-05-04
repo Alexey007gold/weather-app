@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "weather_basic", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"city_id", "date_time"})
+        @UniqueConstraint(columnNames = {"date_time"})
 })
 @NoArgsConstructor
 @EqualsAndHashCode
@@ -20,9 +20,6 @@ public class WeatherBasicEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
-
-    @Column(name = "city_id", nullable = false)
-    private Long cityId;
 
     @Column(name = "date_time", nullable = false)
     private LocalDateTime dateTime;
