@@ -10,10 +10,9 @@ import java.time.LocalDateTime;
  */
 public class TestDataCreator {
 
-    public static WeatherBasicEntity createWeatherBasicEntity(Long cityId, LocalDateTime dateTime,
+    public static WeatherBasicEntity createWeatherBasicEntity(LocalDateTime dateTime,
                                                               Double tempCelsius, Double tempFeelsLikeCelsius) {
         WeatherBasicEntity weatherBasicEntity = new WeatherBasicEntity();
-        weatherBasicEntity.setCityId(cityId);
         weatherBasicEntity.setDateTime(dateTime);
         weatherBasicEntity.setTempCelsius(tempCelsius);
         weatherBasicEntity.setTempFeelsLikeCelsius(tempFeelsLikeCelsius);
