@@ -35,7 +35,7 @@ public class WeatherApiClientServiceImpl implements WeatherApiClientService{
     }
 
     @Override
-    @Scheduled(fixedDelay = 36000)
+    @Scheduled(fixedDelay = 3600000)
     @Transactional
     public void updateDbWithWeatherData() {
         ApiResponse response = getWeatherForTwoDays();
