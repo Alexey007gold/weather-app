@@ -14,27 +14,24 @@ public interface WeatherService {
 
     /**
      * Returns list of Weather entities for the given day
-     * @param cityId id of a city
      * @param date date to get weather for
      * @return list of Weather entities for the given day
      */
-    List<WeatherBasicEntity> getWeatherForDate(Long cityId, LocalDate date);
+    List<WeatherBasicEntity> getWeatherForDate(LocalDate date);
 
     /**
      * Returns list of Weather entities for the given day
-     * @param cityId id of a city
      * @param period period to get weather forecast for
      * @return list of Weather entities for the given period
      */
-    List<WeatherBasicEntity> getWeatherForecast(Long cityId, Period period);
+    List<WeatherBasicEntity> getWeatherForecast(Period period);
 
     /**
      * Returns list of Weather entities for the given day
-     * @param cityId id of a city
      * @param hours period to get weather forecast for
      * @return list of Weather entities for the given number of hours
      */
-    List<WeatherBasicEntity> getWeatherForecast(Long cityId, int hours);
+    List<WeatherBasicEntity> getWeatherForecast(int hours);
 
     enum Period {
         TWO_DAYS(48),
