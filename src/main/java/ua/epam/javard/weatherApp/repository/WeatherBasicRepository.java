@@ -14,4 +14,5 @@ import java.util.List;
 public interface WeatherBasicRepository extends JpaRepository<WeatherBasicEntity, Long> {
     WeatherBasicEntity findByDateTime(LocalDateTime dateTime);
     List<WeatherBasicEntity> findByDateTimeBetween(LocalDateTime from, LocalDateTime until);
+    void deleteByDateTimeBetween(LocalDateTime from, LocalDateTime until);
 }
