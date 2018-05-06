@@ -28,12 +28,12 @@ public class WeatherServiceImplTest {
     @Test
     public void shouldCallRepositoryMethodWithCorrectArgumentsFromAndUntilOnGetWeatherForDateCall() {
         LocalDate date = LocalDate.now();
-        weatherService.getWeatherForDate(1L, date);
+        weatherService.getWeatherForDate(date);
 
         ArgumentCaptor<LocalDateTime> captorFrom = ArgumentCaptor.forClass(LocalDateTime.class);
         ArgumentCaptor<LocalDateTime> captorUntil = ArgumentCaptor.forClass(LocalDateTime.class);
         verify(weatherBasicRepository, times(1))
-                .findByCityIdAndDateTimeBetween(eq(1L), captorFrom.capture(), captorUntil.capture());
+                .findByDateTimeBetween(captorFrom.capture(), captorUntil.capture());
         LocalDateTime from = captorFrom.getValue();
         LocalDateTime until = captorUntil.getValue();
 
@@ -57,7 +57,7 @@ public class WeatherServiceImplTest {
     @Test
     public void shouldCallRepositoryMethodWithCorrectArgumentsFromAndUntilOnGetWeatherForecastCallWithEnumArg() {
         WeatherService.Period period = WeatherService.Period.WEEK;
-        weatherService.getWeatherForecast(1L, period);
+        weatherService.getWeatherForecast(period);
 
         checkCallsRepositoryMethodWithCorrectArgumentsFromAndUntilOnGetWeatherForecastCall(period.getHours());
     }
@@ -65,7 +65,7 @@ public class WeatherServiceImplTest {
     @Test
     public void shouldCallRepositoryMethodWithCorrectArgumentsFromAndUntilOnGetWeatherForecastCallWithIntArg() {
         int period = 6;
-        weatherService.getWeatherForecast(1L, period);
+        weatherService.getWeatherForecast(period);
 
         checkCallsRepositoryMethodWithCorrectArgumentsFromAndUntilOnGetWeatherForecastCall(period);
     }
@@ -74,7 +74,7 @@ public class WeatherServiceImplTest {
         ArgumentCaptor<LocalDateTime> captorFrom = ArgumentCaptor.forClass(LocalDateTime.class);
         ArgumentCaptor<LocalDateTime> captorUntil = ArgumentCaptor.forClass(LocalDateTime.class);
         verify(weatherBasicRepository, times(1))
-                .findByCityIdAndDateTimeBetween(eq(1L), captorFrom.capture(), captorUntil.capture());
+                .findByDateTimeBetween(captorFrom.capture(), captorUntil.capture());
         LocalDateTime from = captorFrom.getValue();
         LocalDateTime until = captorUntil.getValue();
 
