@@ -16,24 +16,25 @@ public class ApiResponseConverter {
         List<WeatherBasicEntity> entityList = new ArrayList<>();
 
         response.getData().forEach(obsevation -> {
-            WeatherBasicEntity basicEntity = new WeatherBasicEntity();
-            WeatherDetailsEntity detailsEntity = new WeatherDetailsEntity();
+            WeatherDetailsEntity detailsEntity = WeatherDetailsEntity.builder()
+                    .weatherIconCode(obsevation.getWeather().getIcon())
+                    .weatherCode(obsevation.getWeather().getCode())
+                    .weatherDescription(obsevation.getWeather().getDescription())
+                    .windDirAbbr(obsevation.getWindDirectionAbbreviation())
+                    .windDirFull(obsevation.getWindDirection())
+                    .windDirDegrees(obsevation.getWindDirectionDegrees())
+                    .windSpeed(obsevation.getWindSpeed())
+                    .windGustSpeed(obsevation.getWindGustSpeed())
+                    .pressure(obsevation.getPressure())
+                    .humidity(obsevation.getRelativeHumidity())
+                    .build();
 
-            detailsEntity.setWeatherIconCode(obsevation.getWeather().getIcon());
-            detailsEntity.setWeatherCode(obsevation.getWeather().getCode());
-            detailsEntity.setWeatherDescription(obsevation.getWeather().getDescription());
-            detailsEntity.setWindDirAbbr(obsevation.getWindDirectionAbbreviation());
-            detailsEntity.setWindDirFull(obsevation.getWindDirection());
-            detailsEntity.setWindDirDegrees(obsevation.getWindDirectionDegrees());
-            detailsEntity.setWindSpeed(obsevation.getWindSpeed());
-            detailsEntity.setWindGustSpeed(obsevation.getWindGustSpeed());
-            detailsEntity.setPressure(obsevation.getPressure());
-            detailsEntity.setHumidity(obsevation.getRelativeHumidity());
-
-            basicEntity.setDateTime(LocalDateTime.parse(obsevation.getDatetime(), FORMATTER));
-            basicEntity.setTempCelsius(obsevation.getTemperature());
-            basicEntity.setTempFeelsLikeCelsius(obsevation.getApparentTemperature());
-            basicEntity.setWeatherDetailsEntity(detailsEntity);
+            WeatherBasicEntity basicEntity = WeatherBasicEntity.builder()
+                    .dateTime(LocalDateTime.parse(obsevation.getDatetime(), FORMATTER))
+                    .tempCelsius(obsevation.getTemperature())
+                    .tempFeelsLikeCelsius(obsevation.getApparentTemperature())
+                    .weatherDetailsEntity(detailsEntity)
+                    .build();
 
             entityList.add(basicEntity);
         });

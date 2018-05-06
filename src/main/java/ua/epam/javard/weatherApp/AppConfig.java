@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @EnableScheduling
-@PropertySource("classpath:weather.properties")
+@PropertySource("classpath:weatherbit_api.properties")
 public class AppConfig {
 
     @Bean

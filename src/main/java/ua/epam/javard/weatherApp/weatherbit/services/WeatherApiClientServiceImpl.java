@@ -23,7 +23,7 @@ public class WeatherApiClientServiceImpl implements WeatherApiClientService{
     private String key;
 
     @Value("${city.id}")
-    private Integer cityId = 689558;
+    private Integer cityId;
 
     @Value("${api.base.url}")
     private String baseUrlForTwoDays;
@@ -35,7 +35,7 @@ public class WeatherApiClientServiceImpl implements WeatherApiClientService{
     }
 
     @Override
-    @Scheduled(fixedDelay = 3600000)
+    @Scheduled(fixedDelayString = "${update.delay}")
     @Transactional
     public void updateDbWithWeatherData() {
         ApiResponse response = getWeatherForTwoDays();
