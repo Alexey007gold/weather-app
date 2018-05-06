@@ -7,11 +7,140 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fa/css/fontawesome-all.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <title>WeatherApp - Main</title>
 </head>
 <body>
-<h1>Hello, WeatherApp user!</h1>
+
+<div class="container">
+    <div id="topbar" class="row my-3">
+        <div class="col-md-3">
+            <div class="d-flex">
+                <div class="text-left">
+                    <span class="topbar-temp">15°</span>
+                    <span class="topbar-weather-descr">Sunny</span>
+                </div>
+                <div class="topbar-weather-icon d-flex align-items-center px-4">
+                    <i class="fas fa-sun"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="d-flex h-100 align-items-center text-center justify-content-around">
+                <div class="topbar-weather-details-item">
+                    <span class="topbar-weather-details-item-title">Wind:</span>
+                    <span class="topbar-weather-details-item-content">3 m/s,<span class="wind-east"><i class="fas fa-arrow-up"></i></span></span>
+                </div>
+                <div class="topbar-weather-details-item">
+                    <span class="topbar-weather-details-item-title">Pressure:</span>
+                    <span class="topbar-weather-details-item-content">740 mmHg</span>
+                </div>
+                <div class="topbar-weather-details-item">
+                    <span class="topbar-weather-details-item-title">Humidity:</span>
+                    <span class="topbar-weather-details-item-content">50%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col p-0">
+            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Today</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tomorrow</a>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="weather-detailed-item-wrapper">
+                        <div class="weather-detailed-item">
+                            <div>
+                                <span>12:00</span>
+                            </div>
+                            <div>
+                                <span>Temp: 21°</span>
+                            </div>
+                            <div>
+                                <span>Pressure: 750 mmHg</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weather-detailed-item-wrapper">
+                        <div class="weather-detailed-item">
+                            <div>
+                                <span>16:00</span>
+                            </div>
+                            <div>
+                                <span>Temp: 21°</span>
+                            </div>
+                            <div>
+                                <span>Pressure: 750 mmHg</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weather-detailed-item-wrapper">
+                        <div class="weather-detailed-item">
+                            <div>
+                                <span>20:00</span>
+                            </div>
+                            <div>
+                                <span>Temp: 21°</span>
+                            </div>
+                            <div>
+                                <span>Pressure: 750 mmHg</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="weather-detailed-item-wrapper">
+                        <div class="weather-detailed-item">
+                            <div>
+                                <span>04:00</span>
+                            </div>
+                            <div>
+                                <span>Temp: 21°</span>
+                            </div>
+                            <div>
+                                <span>Pressure: 750 mmHg</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weather-detailed-item-wrapper">
+                        <div class="weather-detailed-item">
+                            <div>
+                                <span>08:00</span>
+                            </div>
+                            <div>
+                                <span>Temp: 21°</span>
+                            </div>
+                            <div>
+                                <span>Pressure: 750 mmHg</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weather-detailed-item-wrapper">
+                        <div class="weather-detailed-item">
+                            <div>
+                                <span>12:00</span>
+                            </div>
+                            <div>
+                                <span>Temp: 21°</span>
+                            </div>
+                            <div>
+                                <span>Pressure: 750 mmHg</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
 
 <script src="js/bootstrap.min.js"></script>
 </body>
