@@ -37,8 +37,8 @@ public class WeatherBasicWeatherDetailsRepositoriesITTest {
         dateTime = LocalDateTime.of(2018, 10, 20, 13, 0);
 
         WeatherDetailsEntity weatherDetailsEntity = TestDataCreator.createWeatherDetailsEntity("icon",
-                1111, "Rainy", "S", "South", 180.0,
-                10.5, 15.5, 90.0, 30.0);
+                1111, "Rainy", "S", "South", 180L,
+                10.5, 15.5, 90.0, 30L);
 
         WeatherBasicEntity weatherBasicEntity = TestDataCreator.createWeatherBasicEntity(dateTime, 40.0, 40.0);
 
