@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "weather_details")
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 @Builder
 @ToString(exclude = {"weatherBasicEntity"})
