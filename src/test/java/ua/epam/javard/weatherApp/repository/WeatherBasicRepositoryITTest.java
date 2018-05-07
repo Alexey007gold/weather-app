@@ -17,7 +17,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Oleksii_Kovetskyi on 5/3/2018.
@@ -34,8 +35,8 @@ public class WeatherBasicRepositoryITTest {
     @Before
     public void init() {
         weatherDetailsEntity = TestDataCreator.createWeatherDetailsEntity("icon",
-                1111, "Rainy", "S", "South", 180.0,
-                10.5, 15.5, 90.0, 30.0);
+                1111, "Rainy", "S", "South", 180L,
+                10.5, 15.5, 90.0, 30L);
 
         WeatherBasicEntity weatherBasicEntity;
         dateTime = new LocalDateTime[] {LocalDateTime.of(2018, 10, 15, 5,  25),
@@ -80,29 +81,21 @@ public class WeatherBasicRepositoryITTest {
         weatherBasicRepository.saveAndFlush(weatherBasicEntity);
     }
 
-    @Test(expected = DataIntegrityViolationException.class)
-    public void shouldDeleteRightRowsOnDeleteByDateTimeBetween() {
+    @Test
+    public void shouldDeleteRightRowsOnDeleteAllByDateTimeAfter() {
         putDataToRepo();
 
         LocalDateTime from = LocalDateTime.of(2018, 10, 10, 5,  25);
-        LocalDateTime until = LocalDateTime.of(2018, 10, 20, 8,  45);
-
-        //put corner values
+        //put corner value
         weatherBasicRepository.save(createWeatherBasicEntity(from));
-        weatherBasicRepository.save(createWeatherBasicEntity(until));
 
 
-        weatherBasicRepository.deleteByDateTimeBetween(from, until);
+        weatherBasicRepository.deleteAllByDateTimeAfter(from);
 
         List<WeatherBasicEntity> result = weatherBasicRepository.findAll();
 
         for (WeatherBasicEntity entry : result) {
-            assertTrue(entry.getDateTime().isBefore(from));
-            assertTrue(entry.getDateTime().isAfter(until));
-
-            if (entry.getDateTime().isEqual(from)) {
-                fail();
-            }
+            assertTrue(entry.getDateTime().isBefore(from) || entry.getDateTime().isEqual(from));
         }
     }
 

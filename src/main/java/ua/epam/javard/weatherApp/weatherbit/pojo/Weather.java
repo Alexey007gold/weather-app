@@ -20,7 +20,7 @@ public class Weather {
     @JsonProperty("icon")
     private String icon;
     @JsonProperty("code")
-    private long code;
+    private int code;
     @JsonProperty("description")
     private String description;
 
@@ -35,12 +35,12 @@ public class Weather {
     }
 
     @JsonProperty("code")
-    public long getCode() {
+    public int getCode() {
         return code;
     }
 
     @JsonProperty("code")
-    public void setCode(long code) {
+    public void setCode(int code) {
         this.code = code;
     }
 

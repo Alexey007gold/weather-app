@@ -10,7 +10,9 @@ import java.time.LocalDateTime;
         @UniqueConstraint(columnNames = {"date_time"})
 })
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
+@Builder
 @ToString
 @Getter
 @Setter

@@ -7,7 +7,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "weather_details")
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
+@Builder
 @ToString(exclude = {"weatherBasicEntity"})
 @Getter
 @Setter
@@ -38,7 +40,7 @@ public class WeatherDetailsEntity {
     private String windDirFull;
 
     @Column(name = "wind_dir_degrees", nullable = false)
-    private Double windDirDegrees;
+    private Long windDirDegrees;
 
     @Column(name = "wind_speed", nullable = false)
     private Double windSpeed;
@@ -50,6 +52,6 @@ public class WeatherDetailsEntity {
     private Double pressure;
 
     @Column(name = "humidity", nullable = false)
-    private Double humidity;
+    private Long humidity;
 
 }

@@ -22,9 +22,9 @@ public class TestDataCreator {
 
     public static WeatherDetailsEntity createWeatherDetailsEntity(String weatherIconCode, Integer weatherCode,
                                                                   String weatherDescription, String windDirAbbr,
-                                                                  String windDirFull, Double windDirDegrees,
+                                                                  String windDirFull, Long windDirDegrees,
                                                                   Double windSpeed, Double windGustSpeed,
-                                                                  Double pressure, Double humidity) {
+                                                                  Double pressure, Long humidity) {
         WeatherDetailsEntity weatherDetailsEntity = new WeatherDetailsEntity();
         weatherDetailsEntity.setWeatherIconCode(weatherIconCode);
         weatherDetailsEntity.setWeatherCode(weatherCode);

@@ -1,0 +1,54 @@
+#topbar {
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.topbar-temp {
+    font-size: 74px;
+    display: block;
+    line-height: 1;
+}
+
+.topbar-weather-descr {
+    font-size: 22px;
+    padding-left: 8px;
+}
+
+.topbar-weather-icon {
+    font-size: 82px;
+}
+.topbar-weather-icon .fa-sun {
+    color: #ff9900;;
+}
+
+.topbar-weather-details-item>span {
+    display: block;
+}
+
+.wind-east .fa-arrow-up {
+    transform: rotate(90deg);
+}
+.wind-east::before {
+    content: "east";
+    margin: 0 7px;
+}
+
+
+#myTabContent {
+    border: 1px solid #dee2e6;
+    border-top: none; 
+}
+.weather-detailed-item {
+    display: flex;
+    border: 1px solid #dee2e6;
+    border-left: none;
+    border-right: none; 
+}
+.weather-detailed-item-wrapper {
+    padding: 20px 10px;
+}
+.weather-detailed-item>div {
+    padding: 5px 10px;
+    font-size: 20px;
+}
