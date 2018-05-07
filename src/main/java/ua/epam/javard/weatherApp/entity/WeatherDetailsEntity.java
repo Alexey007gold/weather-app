@@ -1,5 +1,6 @@
 package ua.epam.javard.weatherApp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class WeatherDetailsEntity {
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "weatherDetailsEntity")
     @JoinColumn(nullable = false)
+    @JsonIgnore
     private WeatherBasicEntity weatherBasicEntity;
 
     @Column(name = "weather_icon_code", nullable = false)
