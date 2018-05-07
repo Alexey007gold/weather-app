@@ -11,7 +11,7 @@
 }
 
 .topbar-weather-descr {
-    font-size: 22px;
+    font-size: 18px;
     padding-left: 8px;
 }
 
@@ -33,7 +33,6 @@
     content: "east";
     margin: 0 7px;
 }
-
 
 #myTabContent {
     border: 1px solid #dee2e6;
