@@ -36,8 +36,7 @@ public class WeatherController {
         return getWeatherForDate(unit, LocalDate.now().plusDays(1));
     }
 
-    private List<WeatherBasicEntity> getWeatherForDate(@RequestParam(defaultValue = DEFAULT_UNIT) Unit unit,
-                                                       LocalDate date) {
+    private List<WeatherBasicEntity> getWeatherForDate(Unit unit, LocalDate date) {
         switch (unit) {
             case METRIC:
                 return weatherService.getWeatherForDate(date);
