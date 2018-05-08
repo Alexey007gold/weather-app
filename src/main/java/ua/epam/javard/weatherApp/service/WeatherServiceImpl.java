@@ -24,19 +24,19 @@ public class WeatherServiceImpl implements WeatherService {
     }
 
     @Override
-    public  List<WeatherBasicEntity> getWeatherForDate(LocalDate date) {
+    public List<WeatherBasicEntity> getWeatherForDate(LocalDate date) {
         LocalDateTime from = LocalDateTime.of(date, LocalTime.MIN);
         LocalDateTime until = LocalDateTime.of(date, LocalTime.MAX);
         return weatherBasicRepository.findByDateTimeBetween(from, until);
     }
 
     @Override
-    public  List<WeatherBasicEntity> getWeatherForecast(Period period) {
+    public List<WeatherBasicEntity> getWeatherForecast(Period period) {
         return getWeatherForecast(period.getHours());
     }
 
     @Override
-    public  List<WeatherBasicEntity> getWeatherForecast(int hours) {
+    public List<WeatherBasicEntity> getWeatherForecast(int hours) {
         LocalDateTime from = LocalDateTime.now();
         LocalDateTime until = from.plusHours(hours);
         return weatherBasicRepository.findByDateTimeBetween(from, until);
