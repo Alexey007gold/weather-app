@@ -22,6 +22,10 @@
     color: #ff9900;;
 }
 
+ul{
+
+}
+
 .topbar-weather-details-item>span {
     display: block;
 }
@@ -50,4 +54,25 @@
 .weather-detailed-item>div {
     padding: 5px 10px;
     font-size: 20px;
+}
+
+#recommendation-block{
+    padding: 20px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.recommendation-icon{
+    height: 30px;
+    padding-right: 20px;
+    margin-bottom: 6px;
+}
+
+.recommendation-text{
+    font-size: 20px;
+    margin-top: 2px;
+    color: darkblue;
+}
+
+.one-recommendation{
+    padding: 5px 0;
 }

@@ -1,10 +1,12 @@
 var todayData = [];
 var tomorrowData = [];
+var recommendationsForTomorrow =[];
 
 var possibleWindDirections = ["east", "south", "west", "north"];
 
 $(document).ready(function(){
     loadToday();
+    loadRecommendations();
     
     //initTodayDetailedList();
     //initTomorrowDetailedList();
@@ -108,3 +110,34 @@ function getTime(dataItem) {
     return time.slice(time.length - 8, time.length-3);
 }
 /*detailed list end*/
+
+function loadRecommendations(){
+    $.get("/xxxxxxxxxx", function(data){
+        for (let i = 0; i < data.length; i++) {
+            recommendationsForTomorrow.push(data[i]);
+        }
+    });
+    $("#details-tomorrow-tab").on({
+        "click" : function () {
+            let recommendationBlock = $("#recommendation-block");
+            console.log(recommendationsForTomorrow.length);
+            if(recommendationBlock.hasClass("d-none") && recommendationsForTomorrow.length !== 0){
+                recommendationBlock.removeClass("d-none");
+                let firstItem = $(".one-recommendation");
+                firstItem.find(".recommendation-text").text(recommendationsForTomorrow[0]);
+                for (let i = 1; i < recommendationsForTomorrow.length; i++) {
+                    let newItem = $(".one-recommendation").clone();
+                    newItem.find(".recommendation-text").text(recommendationsForTomorrow[i]);
+                }
+            }
+        }
+    });
+    $("#details-today-tab").on({
+        "click" : function () {
+            let recommendationBlock = $("#recommendation-block");
+            if(!recommendationBlock.hasClass("d-none")){
+                recommendationBlock.addClass("d-none");
+            }
+        }
+    })
+}

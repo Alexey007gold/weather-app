@@ -36,18 +36,29 @@
         <div class="col p-0">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" id="details-tomorrow-tab" data-toggle="tab" href="#details-today" role="tab" aria-controls="details-today" aria-selected="true">Today</a>
+                  <a class="nav-link active" id="details-today-tab" data-toggle="tab" href="#details-today" role="tab" aria-controls="details-today" aria-selected="true">Today</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" id="details-tomorrow-tab" data-toggle="tab" href="#details-tomorrow" role="tab" aria-controls="details-tomorrow" aria-selected="false">Tomorrow</a>
                 </li>
               </ul>
               <div class="tab-content" id="myTabContent">
+                <div id="recommendation-block" class="d-none">
+                    <div class="one-recommendation">
+                        <img class="recommendation-icon" src="images/information.svg">
+                        <span class="recommendation-text">Take an umbrella</span>
+                    </div>
+                    <div class="one-recommendation">
+                        <img class="recommendation-icon" src="images/information.svg">
+                        <span class="recommendation-text">Take coat</span>
+                    </div>
+                </div>
+
                 <div class="tab-pane fade show active" id="details-today" role="tabpanel" aria-labelledby="details-tomorrow-tab">
-                    
+
                 </div>
                 <div class="tab-pane fade" id="details-tomorrow" role="tabpanel" aria-labelledby="details-tomorrow-tab">
-                    
+
                 </div>
               </div>
         </div>
