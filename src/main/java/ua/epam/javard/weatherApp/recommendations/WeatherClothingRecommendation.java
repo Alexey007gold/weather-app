@@ -3,6 +3,7 @@ package ua.epam.javard.weatherApp.recommendations;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -11,11 +12,11 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class WeatherClothingRecommendation<T extends Clothing> {
+public class WeatherClothingRecommendation {
 
-    private List<T> recommendedClothing = new ArrayList<>();
+    private List<Clothing> recommendedClothing = new ArrayList<>();
 
-    public void addRecommendation(T clothing) {
-        recommendedClothing.add(clothing);
+    public void addRecommendations(Clothing ...clothing) {
+        recommendedClothing.addAll(Arrays.asList(clothing));
     }
 }
