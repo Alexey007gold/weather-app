@@ -1,4 +1,4 @@
-package test;
+package ua.epam.javard.weatherApp.recommendations;
 
 import lombok.*;
 
