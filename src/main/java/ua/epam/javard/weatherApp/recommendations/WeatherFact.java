@@ -11,9 +11,10 @@ import lombok.*;
 @AllArgsConstructor
 public class WeatherFact {
 
-    public long code;
+    private long code;
 
-    public double temperature;
+    private double temperature;
+
 
 
 
