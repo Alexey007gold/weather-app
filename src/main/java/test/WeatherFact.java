@@ -25,10 +25,6 @@ public class WeatherFact {
         return code >= 300 && code < 400;
     }
 
-    public boolean is400x() {
-        return code >= 400 && code < 500;
-    }
-
     public boolean is500x() {
         return code >= 500 && code < 600;
     }
@@ -43,10 +39,6 @@ public class WeatherFact {
 
     public boolean is800x() {
         return code >= 800 && code < 900;
-    }
-
-    public boolean is900x() {
-        return code >= 900 && code < 1000;
     }
 
     public boolean isNeutral(double neutralUpperBound, double neutralLowerBound) {
