@@ -1,4 +1,4 @@
-package test;
+package ua.epam.javard.weatherApp.recommendations;
 
 import com.deliveredtechnologies.rulebook.NameValueReferableTypeConvertibleMap;
 import com.deliveredtechnologies.rulebook.Result;
@@ -35,7 +35,6 @@ public class WeatherClothingRuleBook extends CoRRuleBook<WeatherClothingRecommen
 
         addWeatherRule(facts -> facts.getOne().is600x() && facts.getOne().isCold(neutralTempLowerBound), (facts, result) -> {});
         addWeatherRule(facts -> facts.getOne().is600x() && facts.getOne().isNeutral(neutralTempUpperBound, neutralTempLowerBound), (facts, result) -> {});
-        addWeatherRule(facts -> facts.getOne().is600x() && facts.getOne().isHot(neutralTempUpperBound), (facts, result) -> {});
 
         addWeatherRule(facts -> facts.getOne().is700x() && facts.getOne().isCold(neutralTempLowerBound), (facts, result) -> {});
         addWeatherRule(facts -> facts.getOne().is700x() && facts.getOne().isNeutral(neutralTempUpperBound, neutralTempLowerBound), (facts, result) -> {});
