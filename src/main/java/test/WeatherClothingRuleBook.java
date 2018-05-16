@@ -29,10 +29,6 @@ public class WeatherClothingRuleBook extends CoRRuleBook<WeatherClothingRecommen
         addWeatherRule(facts -> facts.getOne().is300x() && facts.getOne().isNeutral(neutralTempUpperBound, neutralTempLowerBound), (facts, result) -> {});
         addWeatherRule(facts -> facts.getOne().is300x() && facts.getOne().isHot(neutralTempUpperBound), (facts, result) -> {});
 
-        addWeatherRule(facts -> facts.getOne().is400x() && facts.getOne().isCold(neutralTempLowerBound), (facts, result) -> {});
-        addWeatherRule(facts -> facts.getOne().is400x() && facts.getOne().isNeutral(neutralTempUpperBound, neutralTempLowerBound), (facts, result) -> {});
-        addWeatherRule(facts -> facts.getOne().is400x() && facts.getOne().isHot(neutralTempUpperBound), (facts, result) -> {});
-
         addWeatherRule(facts -> facts.getOne().is500x() && facts.getOne().isCold(neutralTempLowerBound), (facts, result) -> {});
         addWeatherRule(facts -> facts.getOne().is500x() && facts.getOne().isNeutral(neutralTempUpperBound, neutralTempLowerBound), (facts, result) -> {});
         addWeatherRule(facts -> facts.getOne().is500x() && facts.getOne().isHot(neutralTempUpperBound), (facts, result) -> {});
