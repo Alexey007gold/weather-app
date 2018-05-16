@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<rulebook.core.version>0.10</rulebook.core.version>
 	</properties>
 
 	<dependencies>
@@ -57,7 +58,7 @@
 		<dependency>
 			<groupId>com.deliveredtechnologies</groupId>
 			<artifactId>rulebook-core</artifactId>
-			<version>0.10</version>
+			<version>${rulebook.core.version}</version>
 		</dependency>
 	</dependencies>
 
