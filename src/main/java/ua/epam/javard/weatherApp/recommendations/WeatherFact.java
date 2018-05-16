@@ -15,9 +15,6 @@ public class WeatherFact {
 
     private double temperature;
 
-
-
-
     public boolean is200x() {
         return code >= 200 && code < 300;
     }
@@ -43,7 +40,7 @@ public class WeatherFact {
     }
 
     public boolean isNeutral(double neutralUpperBound, double neutralLowerBound) {
-        return temperature > neutralLowerBound && temperature <= neutralUpperBound;
+        return temperature >= neutralLowerBound && temperature <= neutralUpperBound;
     }
 
     public boolean isHot(double neutralUpperBound) {
