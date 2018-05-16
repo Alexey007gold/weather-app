@@ -1,5 +1,8 @@
 var todayData = [];
 var tomorrowData = [];
+var recomendTodayURL = "clothes/recommendation/today";
+var recomendTomorrowURL = "clothes/recommendation/tomorrow";
+var recommendationsForToday =[];
 var recommendationsForTomorrow =[];
 
 var possibleWindDirections = ["east", "south", "west", "north"];
@@ -112,32 +115,65 @@ function getTime(dataItem) {
 /*detailed list end*/
 
 function loadRecommendations(){
-    $.get("/xxxxxxxxxx", function(data){
+    $.get(recomendTomorrowURL, function(data){
         for (let i = 0; i < data.length; i++) {
             recommendationsForTomorrow.push(data[i]);
         }
+        recommendationsForTomorrow.push(111);
+        recommendationsForTomorrow.push(333);
+    });
+    $.get(recomendTodayURL, function(data){
+        for (let i = 0; i < data.length; i++) {
+            recommendationsForToday.push(data[i]);
+        }
+        recommendationsForToday.push(222);
+        recommendationsForToday.push(444);
+        populateRecommendList(recommendationsForToday);
     });
     $("#details-tomorrow-tab").on({
         "click" : function () {
-            let recommendationBlock = $("#recommendation-block");
-            console.log(recommendationsForTomorrow.length);
-            if(recommendationBlock.hasClass("d-none") && recommendationsForTomorrow.length !== 0){
-                recommendationBlock.removeClass("d-none");
-                let firstItem = $(".one-recommendation");
-                firstItem.find(".recommendation-text").text(recommendationsForTomorrow[0]);
-                for (let i = 1; i < recommendationsForTomorrow.length; i++) {
-                    let newItem = $(".one-recommendation").clone();
-                    newItem.find(".recommendation-text").text(recommendationsForTomorrow[i]);
-                }
-            }
+            populateRecommendList(recommendationsForTomorrow);
         }
     });
     $("#details-today-tab").on({
         "click" : function () {
-            let recommendationBlock = $("#recommendation-block");
-            if(!recommendationBlock.hasClass("d-none")){
-                recommendationBlock.addClass("d-none");
-            }
+            populateRecommendList(recommendationsForToday);
         }
     })
+}
+
+function showRecomendForToday(arrRecommendations){
+    let recommendationBlock = $("#recommendation-block");
+    if(arrRecommendations.length > 0){
+        if(!recommendationBlock.hasClass("d-none")){
+            recommendationBlock.addClass("d-none");
+        }
+    }
+}
+
+function populateRecommendList(arrRecommendations){
+    clearRecomendList();
+    console.log(arrRecommendations);
+
+    let recommendationBlock = $("#recommendation-block");
+    console.log(recommendationBlock);
+    if(arrRecommendations.length > 0) {
+        console.log("Removing d-none");
+        recommendationBlock.removeClass("d-none");
+        let firstItem = $(".one-recommendation");
+        firstItem.find(".recommendation-text").text(arrRecommendations[0]);
+        for (let i = 1; i < arrRecommendations.length; i++) {
+            let newItem = $(".one-recommendation").clone();
+            newItem.find(".recommendation-text").text(arrRecommendations[i]);
+            recommendationBlock.append(newItem);
+        }
+    }
+}
+
+function clearRecomendList(){
+    console.log("Clear recom was invoked");
+    $(".one-recommendation").not(':first').remove();
+    let firstItem = $(".one-recommendation");
+    firstItem.find(".recommendation-text").text("");
+    $("#recommendation-block").addClass("d-none");
 }
