@@ -31,7 +31,7 @@ public class ClothesRecommendationServiceImplTest {
     public void init() {
         weatherBasicRepository = mock(WeatherBasicRepository.class);
         ruleBook = mock(WeatherClothingRuleBook.class);
-        clothesRecommendationService = new ClothesRecommendationServiceImpl(weatherBasicRepository, ruleBook);
+        clothesRecommendationService = new ClothesRecommendationServiceImpl(weatherBasicRepository, () -> mock(WeatherClothingRuleBook.class));
     }
 
     @Test
