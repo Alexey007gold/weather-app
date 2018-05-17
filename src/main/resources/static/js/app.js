@@ -119,15 +119,11 @@ function loadRecommendations(){
         for (let i = 0; i < data.length; i++) {
             recommendationsForTomorrow.push(data[i]);
         }
-        recommendationsForTomorrow.push(111);
-        recommendationsForTomorrow.push(333);
     });
     $.get(recomendTodayURL, function(data){
         for (let i = 0; i < data.length; i++) {
             recommendationsForToday.push(data[i]);
         }
-        recommendationsForToday.push(222);
-        recommendationsForToday.push(444);
         populateRecommendList(recommendationsForToday);
     });
     $("#details-tomorrow-tab").on({
@@ -160,10 +156,10 @@ function populateRecommendList(arrRecommendations){
     if(arrRecommendations.length > 0) {
         console.log("Removing d-none");
         recommendationBlock.removeClass("d-none");
-        let firstItem = $(".one-recommendation");
+        let firstItem = $(".one-recommendation").first();
         firstItem.find(".recommendation-text").text(arrRecommendations[0]);
         for (let i = 1; i < arrRecommendations.length; i++) {
-            let newItem = $(".one-recommendation").clone();
+            let newItem = $(".one-recommendation").first().clone();
             newItem.find(".recommendation-text").text(arrRecommendations[i]);
             recommendationBlock.append(newItem);
         }
