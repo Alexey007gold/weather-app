@@ -1,9 +1,10 @@
 package ua.epam.javard.weatherApp.recommendations;
 
+import java.util.Arrays;
+
 public enum Clothing {
 
     // ACCESSORIES
-
     UMBRELLA("Umbrella"),
     SUNGLASSES("Sunglasses"),
 
@@ -26,12 +27,17 @@ public enum Clothing {
     // FEET
     SANDALS("Sandals"),
     BOOTS("Boots"),
-    SNEAKERS("Sneaker");
+    SNEAKERS("Sneakers");
 
     private String name;
 
     Clothing(String name) {
         this.name = name;
+    }
+
+    public static Clothing fromString(String text) {
+        return Arrays.stream(Clothing.values()).filter(c -> c.name.equalsIgnoreCase(text)).findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("No enum constant found for " + text) );
     }
 
     public String getName() {
