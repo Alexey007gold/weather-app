@@ -1,5 +1,6 @@
 package ua.epam.javard.weatherApp.recommendations;
 
+import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableTypeConvertibleMap;
 import com.deliveredtechnologies.rulebook.Result;
 import com.deliveredtechnologies.rulebook.lang.RuleBuilder;
@@ -92,5 +93,9 @@ public class WeatherClothingRuleBook extends CoRRuleBook<WeatherClothingRecommen
                 .build());
     }
 
-
+    @Override
+    public void run(NameValueReferableMap facts) {
+        setDefaultResult(new WeatherClothingRecommendation());
+        super.run(facts);
+    }
 }
