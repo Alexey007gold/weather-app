@@ -1,10 +1,15 @@
 var todayData = [];
 var tomorrowData = [];
+var recomendTodayURL = "clothes/recommendation/today";
+var recomendTomorrowURL = "clothes/recommendation/tomorrow";
+var recommendationsForToday =[];
+var recommendationsForTomorrow =[];
 
 var possibleWindDirections = ["east", "south", "west", "north"];
 
 $(document).ready(function(){
     loadToday();
+    loadRecommendations();
     
     //initTodayDetailedList();
     //initTomorrowDetailedList();
@@ -108,3 +113,63 @@ function getTime(dataItem) {
     return time.slice(time.length - 8, time.length-3);
 }
 /*detailed list end*/
+
+function loadRecommendations(){
+    $.get(recomendTomorrowURL, function(data){
+        for (let i = 0; i < data.length; i++) {
+            recommendationsForTomorrow.push(data[i]);
+        }
+    });
+    $.get(recomendTodayURL, function(data){
+        for (let i = 0; i < data.length; i++) {
+            recommendationsForToday.push(data[i]);
+        }
+        populateRecommendList(recommendationsForToday);
+    });
+    $("#details-tomorrow-tab").on({
+        "click" : function () {
+            populateRecommendList(recommendationsForTomorrow);
+        }
+    });
+    $("#details-today-tab").on({
+        "click" : function () {
+            populateRecommendList(recommendationsForToday);
+        }
+    })
+}
+
+function showRecomendForToday(arrRecommendations){
+    let recommendationBlock = $("#recommendation-block");
+    if(arrRecommendations.length > 0){
+        if(!recommendationBlock.hasClass("d-none")){
+            recommendationBlock.addClass("d-none");
+        }
+    }
+}
+
+function populateRecommendList(arrRecommendations){
+    clearRecomendList();
+    console.log(arrRecommendations);
+
+    let recommendationBlock = $("#recommendation-block");
+    console.log(recommendationBlock);
+    if(arrRecommendations.length > 0) {
+        console.log("Removing d-none");
+        recommendationBlock.removeClass("d-none");
+        let firstItem = $(".one-recommendation").first();
+        firstItem.find(".recommendation-text").text(arrRecommendations[0]);
+        for (let i = 1; i < arrRecommendations.length; i++) {
+            let newItem = $(".one-recommendation").first().clone();
+            newItem.find(".recommendation-text").text(arrRecommendations[i]);
+            recommendationBlock.append(newItem);
+        }
+    }
+}
+
+function clearRecomendList(){
+    console.log("Clear recom was invoked");
+    $(".one-recommendation").not(':first').remove();
+    let firstItem = $(".one-recommendation");
+    firstItem.find(".recommendation-text").text("");
+    $("#recommendation-block").addClass("d-none");
+}
