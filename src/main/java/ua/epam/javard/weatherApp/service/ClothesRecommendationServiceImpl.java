@@ -4,6 +4,7 @@ import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.Result;
 import com.deliveredtechnologies.rulebook.model.RuleBook;
+import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.epam.javard.weatherApp.entity.WeatherBasicEntity;
@@ -26,15 +27,14 @@ public class ClothesRecommendationServiceImpl implements ClothesRecommendationSe
     public static final String CLOTHING_RECOMMENDATION_PATTERN = "Take %s";
 
     private WeatherBasicRepository weatherBasicRepository;
-    private RuleBook<WeatherClothingRecommendation> ruleBook;
+    private ObjectFactory<RuleBook<WeatherClothingRecommendation>> ruleBookObjectFactory;
 
     @Autowired
     public ClothesRecommendationServiceImpl(WeatherBasicRepository weatherBasicRepository,
-                                            RuleBook<WeatherClothingRecommendation> ruleBook) {
+                                            ObjectFactory<RuleBook<WeatherClothingRecommendation>> ruleBookObjectFactory) {
         this.weatherBasicRepository = weatherBasicRepository;
-        this.ruleBook = ruleBook;
+        this.ruleBookObjectFactory = ruleBookObjectFactory;
     }
-
 
     @Override
     public List<String> getRecommendationForDateTime(LocalDateTime dateTime) {
@@ -44,6 +44,7 @@ public class ClothesRecommendationServiceImpl implements ClothesRecommendationSe
         }
 
         NameValueReferableMap<WeatherFact> factMap = fillWeatherFactMap(weatherBasicEntity);
+        RuleBook<WeatherClothingRecommendation> ruleBook = ruleBookObjectFactory.getObject();
         ruleBook.run(factMap);
 
         Optional<Result<WeatherClothingRecommendation>> result = ruleBook.getResult();
